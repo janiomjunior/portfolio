@@ -52,36 +52,18 @@
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 class="fw-light">Janio Mendonca Junior</h1>
-        <p class="lead text-muted">Hi, my name is Janio and I enjoy work on web development and data science. I also enjoy to exercise myself doing a jogging or going to the gym.</p>
-        <p>
+        <p class="lead text-muted">{{ job.summary }}</p>
+          <img src="{{ job.image.url }}" height=300></img>
+          <p>
           <a href="mailto:janiomjr@gmail.com" class="btn btn-primary my-2">Email Me</a>
           <a href="https://www.linkedin.com/in/janiomendoncajr/" class="btn btn-secondary my-2">Open My LinkedIn</a>
         </p>
-          <img src="{% static 'Minha foto.jpg' %}" height=300></img>
+          <p>
+          <a href="{%  url 'home' %}" class="btn btn-primary my-2">Back</a>
+          </p>
       </div>
     </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for job in jobs.all %}
-          <div class="col">
-          <a href="{% url 'detail' job.id %}">
-          <div class="card shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}">
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-          </a>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-
 </main>
 
 <script src="{% static 'jquery-3.6.0.min.js' %}" ></script>
